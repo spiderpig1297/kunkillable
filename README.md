@@ -65,4 +65,10 @@ Before we'll discuss on the MO of the _kunkillable_ module, lets see what happen
 
 Let's take a look at the function sig_task_ignored():
 
+**_NOTE_**: you can find the rest of the screenshots under docs/ directory.
+
 ![Alt text](https://github.com/spiderpig1297/kunkillable/blob/master/docs/10_sig_task_ignored.png)
+
+As we can see in line 85, the kernel reads the task_struct's signal flags to find if _SIGNAL_UNKILLABLE_ is defined. If so - ___true is returned, and the signal is being ignored - hence our process becomes unkillable.
+
+All we need to do - is to find the task_struct of the process we want to turn unkillable, and add _SIGNAL_UNKILLABLE_ flag to it.
