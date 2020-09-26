@@ -39,15 +39,15 @@ In order to understand the MO of the module, lets see first what happens when we
             _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ |
             |   
             |   evantually, __send_signal() is called.
-            |   __send_signal is the last function in the chain whose responsible for the actual
-            |   send of the signal.
+            |   __send_signal is the last function in the chain whose responsible for 
+            |   the actual send of the signal.
             |
         --------------------
         | prepare_signal() |
         --------------------
             |
-            |   as part of the signal prepartion, prepare_signal() is called and in turns calls two
-            |   interesting function!
+            |   as part of the signal prepartion, prepare_signal() is called and in 
+            |   turns calls two interesting function!
             |
         -----------------
         | sig_ignored() |
@@ -59,8 +59,9 @@ In order to understand the MO of the module, lets see first what happens when we
         | sig_task_ignored() |
         ----------------------
 
-                sig_task_ignored() is the function responsible for checking if the process should
-                ignore the signal that we want to send, according to its task_struct's flags.
+                sig_task_ignored() is the function responsible for checking if the 
+                process should ignore the signal that we want to send, according to 
+                its task_struct's flags.
 
 Let's take a look at the function sig_task_ignored():
 
