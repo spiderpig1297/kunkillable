@@ -4,8 +4,6 @@
 
 ## __TL;DR__
 
-**NOTE**: this section is a short version of how the module works. for a full version, see [How It Works](#how-it-works).
-
 `kunkillable` adds the flag `SIGNAL_UNKILLABLE` to the signal flags of `task_struct` hence making it unkillable.
 
 When the module is unloaded, the flag is removed and the process becomes killable again.
