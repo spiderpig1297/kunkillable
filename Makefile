@@ -1,5 +1,5 @@
 obj-m += kunkillable.o
-kunkillable-y := source.o
+kunkillable-y := source.o readpid.o
 
 KERNELDIR ?= ~/workspace/buildroot/output/build/linux-4.19.98
 PWD       := $(shell pwd)
