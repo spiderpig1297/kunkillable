@@ -67,7 +67,7 @@ Before we'll discuss on the MO of the _kunkillable_ module, lets see what happen
 
 Let's take a look at the function sig_task_ignored():
 
-**_NOTE_**: you can find the rest of the screenshots under docs/ directory.
+**_NOTE_**: you can find the rest of the screenshots under [docs/](https://github.com/spiderpig1297/kunkillable/tree/master/docs) directory.
 
 ![Alt text](https://github.com/spiderpig1297/kunkillable/blob/master/docs/10_sig_task_ignored.png)
 
