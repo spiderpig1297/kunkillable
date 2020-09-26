@@ -1,18 +1,18 @@
 # __kunkillable__
 
-_kunkillable_ is an LKM (loadable kernel module) that makes userland processes unkillable.
+`kunkillable` is an LKM (loadable kernel module) that makes userland processes unkillable.
 
 ## __TL;DR__
 
 **_NOTE_**: this section is a short version of how the module works. for a full version, see [How It Works](#how-it-works).
 
-_kunkillable_ takes advantage of the signal flags of a given `task_struct`, and adds the flag `SIGNAL_UNKILLABLE` hence making it unkillable.
+`kunkillable` takes advantage of the signal flags of a given `task_struct`, and adds the flag `SIGNAL_UNKILLABLE` hence making it unkillable.
 
 When the module is unloaded, the flag is removed and the process becomes killable again.
 
 ## __How It Works__
 
-Before we'll discuss on the MO of the _kunkillable_ module, lets see what happens when we send a user-mode signal to a process:
+Before we'll discuss on the MO of the `kunkillable` module, lets see what happens when we send a user-mode signal to a process:
 
         -----------------
         | kill -9 25327 |
