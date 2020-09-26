@@ -4,7 +4,7 @@
 
 ## __TL;DR__
 
-**_NOTE_**: this section is a short version of how the module works. for a full version, see [How It Works](#how-it-works).
+**NOTE**: this section is a short version of how the module works. for a full version, see [How It Works](#how-it-works).
 
 `kunkillable` takes advantage of the signal flags of a given `task_struct`, and adds the flag `SIGNAL_UNKILLABLE` hence making it unkillable.
 
@@ -25,8 +25,8 @@ Before we'll discuss on the MO of the `kunkillable` module, lets see what happen
         | sys_kill() |
         --------------
             |
-            |   system call sys_kill() is called, initiating a sequence of internal functions 
-            |   called is initiated, with kill_something_info as the first one
+            |   sys_kill() is called, initiating a sequence of internal functions 
+            |   calles with kill_something_info as the first one
             |
         -------------------------     -------------------     -------------------------
         | kill_something_info() | --> | kill_pid_info() | --> | group_send_sig_info() | 
@@ -35,9 +35,9 @@ Before we'll discuss on the MO of the `kunkillable` module, lets see what happen
                                                                     |
             _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ |
             |
-        ----------------------     -----------------      -------------------
-        | do_send_sig_info() | --> | send_signal() |  --> | __send_signal() |
-        ----------------------     -----------------      -------------------
+        ----------------------        -----------------       -------------------
+        | do_send_sig_info() | -----> | send_signal() |  ---> | __send_signal() |
+        ----------------------        -----------------       -------------------
                                                                     |
             _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ |
             |   
@@ -50,7 +50,7 @@ Before we'll discuss on the MO of the `kunkillable` module, lets see what happen
         --------------------
             |
             |   as part of the signal prepartion, prepare_signal() is called and in turns calls two
-            |   interseting function!
+            |   interesting function!
             |
         -----------------
         | sig_ignored() |
@@ -62,12 +62,12 @@ Before we'll discuss on the MO of the `kunkillable` module, lets see what happen
         | sig_task_ignored() |
         ----------------------
 
-                sig_task_ignored() is the function that responsible for checking if the process should
+                sig_task_ignored() is the function responsible for checking if the process should
                 ignore the signal that we want to send, according to its task_struct's flags.
 
 Let's take a look at the function sig_task_ignored():
 
-**_NOTE_**: you can find the rest of the screenshots under [docs/](https://github.com/spiderpig1297/kunkillable/tree/master/docs) directory.
+**NOTE**: you can find the rest of the screenshots under [docs/](https://github.com/spiderpig1297/kunkillable/tree/master/docs) directory.
 
 ![Alt text](https://github.com/spiderpig1297/kunkillable/blob/master/docs/10_sig_task_ignored.png)
 
