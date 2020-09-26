@@ -23,7 +23,7 @@ In order to understand the MO of the module, lets see first what happens when we
         | sys_kill() |
         --------------
             |
-            |   sys_kill() is called, initiating a sequence of internal functions calles 
+            |   sys_kill() is called, initiating a sequence of internal functions calls 
             |
         -------------------------     -------------------     -------------------------
         | kill_something_info() | --> | kill_pid_info() | --> | group_send_sig_info() | 
