@@ -10,7 +10,7 @@ When the module is unloaded, the flag is removed and the process becomes killabl
 
 ## __How It Works__
 
-Before we'll discuss on the MO of the `kunkillable` module, lets see what happens when we send a user-mode signal to a process:
+In order to understand the MO of the module, lets see first what happens when we send a user-mode signal to a process:
 
         -----------------
         | kill -9 25327 |
