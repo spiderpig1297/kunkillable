@@ -65,4 +65,4 @@ Before we'll discuss on the MO of the _kunkillable_ module, lets see what happen
 
 Let's take a look at the function sig_task_ignored():
 
-    ![Alt text](https://github.com/spiderpig1297/kunkillable/blob/master/docs/10_sig_task_ignored.png)
+![Alt text](https://github.com/spiderpig1297/kunkillable/blob/master/docs/10_sig_task_ignored.png)
