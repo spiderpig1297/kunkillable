@@ -7,6 +7,9 @@ _kunkillable_ is an LKM (loadable kernel module) that makes userland processes u
 **_NOTE_**: this section is a shorted version of how the module works. for a full version, see [How It Works]
 (#how_it_works).
 
+_kunkillable_ takes advantage of the signal flags of a given task_struct, and adds the flag _SIGNAL_UNKILLABLE_ hence making it unkillable.
+
+When the module is unloaded, the flag is removed and the process becomes killable again.
 
 ## __How It Works__
 
@@ -69,6 +72,7 @@ Let's take a look at the function sig_task_ignored():
 
 ![Alt text](https://github.com/spiderpig1297/kunkillable/blob/master/docs/10_sig_task_ignored.png)
 
+### _SIGNAL_UNKILLABLE_
 As we can see in line 85, the kernel reads the task_struct's signal flags to find if _SIGNAL_UNKILLABLE_ is defined. If so - ___true is returned, and the signal is being ignored - hence our process becomes unkillable.
 
 All we need to do - is to find the task_struct of the process we want to turn unkillable, and add _SIGNAL_UNKILLABLE_ flag to it.
